@@ -1,0 +1,10 @@
+<div class="container my-5">
+  <div class="card mx-auto" style="width: 50%;">
+    <img src="assets/images/{{productDetails?.imgUrl}}" class="card-img-top w-100" style="height:300px" alt="...">
+    <div class="card-body ms-3 my-2">
+      <h5 class="card-title fs-3">{{ productDetails?.productName }}</h5>
+      <p class="card-text fs-5">Price: {{ productDetails?.price | currency }}</p>
+      <p class="card-text fs-5">Quantity: {{ productDetails?.quantity }}</p>
+    </div>
+  </div>
+</div>

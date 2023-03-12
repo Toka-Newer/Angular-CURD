@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <div class="mb-4">
+    <button type="button" class="btn btn-primary mx-2" routerLink="/products/0/edit">Add Product</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <button type="button" class="btn btn-primary mx-2" [routerLink]="['/products', product.id]">View</button>
+          <button type="button" class="btn btn-warning mx-2" routerLink="/products/{{product.id}}/edit">Edit</button>
+          <button type="button" class="btn btn-danger mx-2" (click)="delete(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

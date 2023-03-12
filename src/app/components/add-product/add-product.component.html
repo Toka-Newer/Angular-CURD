@@ -1,0 +1,36 @@
+<div class="container my-5">
+  <form [formGroup]="productForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="productName" name="productName">
+      <ng-container *ngIf="ProductName.touched">
+        <div *ngIf="ProductName.hasError('required')" class="form-text text-danger">
+          Product Name is required!
+        </div>
+        <div *ngIf="ProductName.errors?.['minlength']" class="form-text text-danger">
+          Product Name should be more than 3 chars!!
+        </div>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" formControlName="price" name="price">
+      <ng-container *ngIf="ProductName.touched">
+        <div *ngIf="Price.hasError('required')" class="form-text text-danger">
+          Price is required!
+        </div>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Quantity</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" formControlName="quantity" name="quantity">
+      <ng-container *ngIf="ProductName.touched">
+        <div *ngIf="Quantity.hasError('required')" class="form-text text-danger">
+          Quantity is required!
+        </div>
+      </ng-container>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="save($event)">{{ productId?"Edit":"Add" }}</button>
+  </form>
+</div>
